@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="offwhite">#80ffffff</color>
+    <color name="myYellow">#88ffff00</color>
+    <color name="plainYellow">#ffffff00</color>
+    <color name="plainRed">#ffff0000</color>
+    <color name="plainWhite">#ffffffff</color>
+    <color name="plainBlack">#ff000000</color>
+    <color name="myGreen">#88448800</color>
+  <color name="background_light">#FFFFFFFF</color>
+</resources>

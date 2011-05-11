@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_centerHorizontal="true"
+  android:layout_height="fill_parent"
+  android:layout_width="fill_parent"
+  android:background="@drawable/splash"
+  style="@style/android:Theme.NoTitleBar">
+
+  <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:stretchColumns="*"
+    android:layout_alignParentBottom="true">
+
+    <TableRow>
+
+      <ImageButton
+        android:id="@+id/showMapButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/mapmenuicon"
+        android:ems="4"/>
+      <ImageButton
+        android:id="@+id/showPhotoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/eyemenuicon"
+        android:ems="4"/>
+      <ImageButton
+        android:id="@+id/showListButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/listmenuicon"
+        android:ems="4"/>
+
+    </TableRow>
+  </TableLayout>
+
+</RelativeLayout>
+

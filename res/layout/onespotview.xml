@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_centerHorizontal="true"
+  android:layout_height="fill_parent"
+  android:layout_width="fill_parent"
+  style="@style/android:Theme.NoTitleBar"
+  android:tag="mainImage">
+  <TextView
+    android:tag="data"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:visibility="gone"/>
+
+  <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:stretchColumns="*"
+    android:layout_alignParentBottom="true"
+    android:id="@+id/footer">
+
+    <TableRow>
+
+      <ImageButton
+        android:id="@+id/goBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/backmenuicon"
+        android:ems="4"/>
+      <ImageButton
+        android:id="@+id/showMapButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/mapmenuicon"
+        android:ems="4"/>
+      <ImageButton
+        android:id="@+id/goButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/gomenuicon"
+        android:ems="4"/>
+
+    </TableRow>
+  </TableLayout>
+  <Button
+    android:tag="showDetail"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_above="@id/footer"
+    android:gravity="center_horizontal"
+    style="@style/LostButtonFont"/>
+
+</RelativeLayout>

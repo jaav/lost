@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <style name="Theme.Light" parent="@android:style/Theme.Light.NoTitleBar" />
+  <style name="Theme.Light.Debug">
+    <item name="android:background">@color/plainYellow</item>
+  </style>
+  <style name="Theme.Light.RedDebug">
+    <item name="android:background">@color/plainRed</item>
+  </style>
+  <style name="CodeFont" parent="@android:style/TextAppearance.Medium">
+    <item name="android:layout_width">fill_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:textColor">#00FF00</item>
+    <item name="android:typeface">monospace</item>
+  </style>
+  <style name="LostFont" parent="@android:style/TextAppearance.Medium">
+    <item name="android:textSize">14sp</item>
+  </style>
+  <style name="LostButtonFont" parent="@android:style/TextAppearance.Medium.Inverse">
+    <item name="android:textSize">14sp</item>
+    <item name="android:textStyle">bold</item>
+  </style>
+  <style name="LostTitleFont" parent="@android:style/TextAppearance.Medium">
+    <item name="android:textSize">14sp</item>
+    <item name="android:textStyle">bold</item>
+  </style>
+  <style name="LostH1Font" parent="@android:style/TextAppearance.Large">
+    <item name="android:textSize">24sp</item>
+  </style>
+  <style name="LostH2Font" parent="@android:style/TextAppearance.Large">
+    <item name="android:textSize">18sp</item>
+  </style>
+  <style name="SmallFont" parent="@android:style/TextAppearance.Small">
+    <item name="android:textSize">10sp</item>
+    <item name="android:textStyle">bold</item>
+  </style>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory android:title="Language Preferences">
+		<ListPreference
+			android:key="locale"
+			android:title="Language selector"
+			android:summary="Click to pop up a list to choose from"
+			android:entries="@array/lang_names"
+			android:entryValues="@array/lang_values"
+			android:dialogTitle="Select the language of your choice" />
+	</PreferenceCategory>
+</PreferenceScreen>
