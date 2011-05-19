@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_centerHorizontal="true"
+  android:layout_height="fill_parent"
+  android:layout_width="fill_parent"
+  style="@style/android:Theme.NoTitleBar">
+  <TextView
+    android:id="@+id/title"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    style="@style/LostTitleFont"/>
+  <ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_below="@id/title">
+    <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/about_content"
+    style="@style/LostFont"/>
+  </ScrollView>
+
+  <ImageButton
+    android:id="@+id/goBackButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/backmenuicon"
+    android:ems="4"
+    android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
