@@ -4,4 +4,51 @@
     android:id="@+id/flipper"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
+      <include android:id="@+id/spotFlip1" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip2" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip3" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip4" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip5" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip6" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip7" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip8" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip9" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip10" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip11" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip12" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip13" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip14" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip15" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip16" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip17" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip18" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip19" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip20" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip21" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip22" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip23" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip24" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip25" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip26" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip27" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip28" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip29" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip30" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip31" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip32" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip33" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip34" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip35" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip36" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip37" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip38" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip39" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip40" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip41" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip42" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip43" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip44" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip45" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip46" layout="@layout/onespotview" />
+      <include android:id="@+id/spotFlip47" layout="@layout/onespotview" />
   </ViewFlipper>

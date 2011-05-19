@@ -15,6 +15,11 @@
         android:title="@string/zoom"
         android:icon="@android:drawable/ic_menu_zoom" />
 
+    <item
+        android:id="@+id/zoomout"
+        android:title="@string/zoomout"
+        android:icon="@drawable/ic_menu_zoom_out" />
+
 
     <item
         android:id="@+id/preferences"
@@ -26,5 +31,16 @@
         android:id="@+id/home"
         android:title="@string/home"
         android:icon="@drawable/homemenuicon" />
+
+
+    <item
+        android:id="@+id/intro"
+        android:title="@string/intro"
+        android:icon="@android:drawable/ic_menu_help" />
+
+    <item
+        android:id="@+id/about"
+        android:title="@string/about"
+        android:icon="@android:drawable/ic_menu_info_details" />
 
 </menu>

@@ -77,10 +77,15 @@ public class SpotListActivity extends ListActivity {
         startActivity(new Intent(this, PreferencesActivity.class));
         break;
 
-      case R.id.home:{
+      case R.id.home:
         startActivity(new Intent(this, Splash.class));
         break;
-      }
+      case R.id.about:
+        startActivity(new Intent(this, AboutActivity.class));
+        break;
+      case R.id.intro:
+        startActivity(new Intent(this, IntroActivity.class));
+        break;
       default:
       }
       return super.onOptionsItemSelected(item);
@@ -168,7 +173,7 @@ public class SpotListActivity extends ListActivity {
       Bitmap bitmap = null;
       try {
         AssetManager am = getAssets();
-        BufferedInputStream buf = new BufferedInputStream(am.open(imageName + ".jpg"));
+        BufferedInputStream buf = new BufferedInputStream(am.open("thumbs/"+imageName + ".jpg"));
         bitmap = BitmapFactory.decodeStream(buf);
         buf.close();
       } catch (IOException e) {

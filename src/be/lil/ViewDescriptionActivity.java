@@ -94,6 +94,12 @@ public class ViewDescriptionActivity extends Activity implements View.OnClickLis
       case R.id.preferences:
         startActivity(new Intent(this, PreferencesActivity.class));
         break;
+      case R.id.about:
+        startActivity(new Intent(this, AboutActivity.class));
+        break;
+      case R.id.intro:
+        startActivity(new Intent(this, IntroActivity.class));
+        break;
       default:
     }
     return super.onOptionsItemSelected(item);
@@ -106,11 +112,13 @@ public class ViewDescriptionActivity extends Activity implements View.OnClickLis
       startActivity(new Intent(this, MapOverviewActivity.class));
     /*if(view.getId() == R.id.showPhotoButton)
       startActivity(new Intent(this, ViewSpotActivity.class));*/
-    if (view.getId() == R.id.goBackButton) {
+    if (view.getId() == R.id.goBackButton)
+      finish();
+    /*{
       Intent spotIntent = new Intent(this, ViewSpotActivity.class);
       spotIntent.putExtra("spotOrder", currentSpot.getSpotorder());
       startActivity(spotIntent);
-    }
+    }*/
     if (view.getId() == R.id.goButton) {
       Intent mapIntent;
       double dist = getDistanceInM(currentLocation.getLatitude(), currentLocation.getLongitude(), currentSpot.getY(), currentSpot.getX());
@@ -210,7 +218,7 @@ public class ViewDescriptionActivity extends Activity implements View.OnClickLis
     // could be very inaccurate though
     currentLocation = locationManager.getLastKnownLocation(
       locationManager.getBestProvider(fine, true));
-    currentLocation = debugLocation;
+    //currentLocation = debugLocation;
 
     if (listenerFine == null || listenerCoarse == null)
       createLocationListeners();
@@ -257,7 +265,7 @@ public class ViewDescriptionActivity extends Activity implements View.OnClickLis
             location.getLatitude(),
             location.getLongitude()) > 100) {
             currentLocation = location;
-            currentLocation = debugLocation;
+            //currentLocation = debugLocation;
           }
         }
       }
@@ -292,7 +300,7 @@ public class ViewDescriptionActivity extends Activity implements View.OnClickLis
             location.getLatitude(),
             location.getLongitude()) > 100) {
             currentLocation = location;
-            currentLocation = debugLocation;
+            //currentLocation = debugLocation;
           }
         }
       }

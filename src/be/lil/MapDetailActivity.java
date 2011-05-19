@@ -33,6 +33,7 @@ public class MapDetailActivity extends Activity {
   private boolean isMenuEvent = false;
   private Locale locale;
   private SampleView sampleView;
+  private long targetSpotId;
 
   /**
    * Called when the activity is first created.
@@ -55,7 +56,7 @@ public class MapDetailActivity extends Activity {
     Intent message = getIntent();
     float centerX = message.getFloatExtra("centerX", -1);
     float centerY = message.getFloatExtra("centerY", -1);
-    long targetSpotId = message.getLongExtra("spot_id", -1);
+    targetSpotId = message.getLongExtra("spot_id", -1);
     float myX = message.getFloatExtra("myX", 0);
     float myY = message.getFloatExtra("myY", 0);
     sampleView = new SampleView(this, centerX, centerY, targetSpotId, myX, myY);
@@ -90,26 +91,31 @@ public class MapDetailActivity extends Activity {
         startActivity(new Intent(this, PreferencesActivity.class));
         break;
 
-      case R.id.goBack:{
-        zoomOut(
-          CoordinatesTranslator.getRealX(sampleView.scrollRectX + displayWidth / 2, CoordinatesTranslator.DETAIL),
-          CoordinatesTranslator.getRealY(sampleView.scrollRectY + displayHeight / 2, CoordinatesTranslator.DETAIL));
+      case R.id.goBack:
+        finish();
         break;
-      }
-      case R.id.spots:{
+      case R.id.spots:
         startActivity(new Intent(this, ViewSpotActivity.class));
         break;
-      }
-      case R.id.zoom:{
+      case R.id.zoom:
         zoomIn(
           CoordinatesTranslator.getRealX(sampleView.scrollRectX + displayWidth / 2, CoordinatesTranslator.DETAIL),
           CoordinatesTranslator.getRealY(sampleView.scrollRectY + displayHeight / 2, CoordinatesTranslator.DETAIL));
         break;
-      }
-      case R.id.home:{
+      case R.id.zoomout:
+        zoomOut(
+          CoordinatesTranslator.getRealX(sampleView.scrollRectX + displayWidth / 2, CoordinatesTranslator.DETAIL),
+          CoordinatesTranslator.getRealY(sampleView.scrollRectY + displayHeight / 2, CoordinatesTranslator.DETAIL));
+        break;
+      case R.id.home:
         startActivity(new Intent(this, Splash.class));
         break;
-      }
+      case R.id.about:
+        startActivity(new Intent(this, AboutActivity.class));
+        break;
+      case R.id.intro:
+        startActivity(new Intent(this, IntroActivity.class));
+        break;
       default:
       }
       return super.onOptionsItemSelected(item);
@@ -163,17 +169,19 @@ public class MapDetailActivity extends Activity {
 
 
   private void zoomOut(float theX, float theY){
-    Intent detailIntent = new Intent(this, MapOverviewActivity.class);
-    detailIntent.putExtra("centerX", theX);
-    detailIntent.putExtra("centerY", theY);
-    startActivity(detailIntent);
+    Intent overviewIntent = new Intent(this, MapOverviewActivity.class);
+    overviewIntent.putExtra("centerX", theX);
+    overviewIntent.putExtra("centerY", theY);
+    overviewIntent.putExtra("spot_id", targetSpotId);
+    startActivity(overviewIntent);
   }
 
   private void zoomIn(float theX, float theY){
-    Intent detailIntent = new Intent(this, MapSuperZoomActivity.class);
-    detailIntent.putExtra("centerX", theX);
-    detailIntent.putExtra("centerY", theY);
-    startActivity(detailIntent);
+    Intent superZoomIntent = new Intent(this, MapSuperZoomActivity.class);
+    superZoomIntent.putExtra("centerX", theX);
+    superZoomIntent.putExtra("centerY", theY);
+    superZoomIntent.putExtra("spot_id", targetSpotId);
+    startActivity(superZoomIntent);
   }
 
   private void showSpot(int spotOrder){

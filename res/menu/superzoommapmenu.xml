@@ -11,9 +11,9 @@
         android:icon="@drawable/eyemenuicon" />
 
     <item
-        android:id="@+id/zoom"
-        android:title="@string/zoom"
-        android:icon="@android:drawable/ic_menu_zoom" />
+        android:id="@+id/zoomout"
+        android:title="@string/zoomout"
+        android:icon="@drawable/ic_menu_zoom_out" />
 
 
     <item
@@ -25,5 +25,16 @@
         android:id="@+id/preferences"
         android:title="@string/preferences"
         android:icon="@android:drawable/ic_menu_preferences" />
+
+
+    <item
+        android:id="@+id/intro"
+        android:title="@string/intro"
+        android:icon="@android:drawable/ic_menu_help" />
+
+    <item
+        android:id="@+id/about"
+        android:title="@string/about"
+        android:icon="@android:drawable/ic_menu_info_details" />
 
 </menu>

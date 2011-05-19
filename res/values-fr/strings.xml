@@ -13,9 +13,21 @@
     <string name="preferences">Preferences</string>
     <string name="intro">Intro</string>
     <string name="about">About</string>
-    <string name="intro_title">Intro</string>
-    <string name="about_title">About</string>
-    <string name="intro_content">Intro</string>
-    <string name="about_content">About</string>
+    <string name="intro_title">Introduction</string>
+    <string name="about_title">Lost in Liege</string>
+    <string name="intro_content">Nombreux sont encore les rues, places et monuments à Liège qui témoignent d’un XIXe siècle entreprenant et novateur. Appréhender les lieux à travers le prisme des commentaires de Victor Hugo, voilà l’objet du circuit qui vous est proposé.
+\n\n
+Le grand écrivain romantique, auteur des Misérables et de Notre-Dame de Paris, passe une première fois à Liège en 1840, lors de son voyage vers l\'Allemagne. Au cours de son bref séjour, il note ses impressions ainsi que diverses informations – parfois erronées – sur les lieux visités. Ces textes figurent dans HUGO, Victor. Le Rhin. Bruxelles : P.-C Prodhomme, 1846.
+\n\n
+On suppose que, lors de son second passage à Liège, en 1864, Victor Hugo constate de profondes transformations dans le paysage urbain. En effet, la ville quitte son visage médiéval pour entrer dans la modernité, ce qui semble ne pas toujours plaire à l\'écrivain. Victor Hugo présente d\'ailleurs Liège comme « une de ces vieilles villes en train de devenir villes neuves, transformation déplorable mais fatale ! »</string>
+    <string name="about_content">L’année 2011 ne commémore ni l’anniversaire de la naissance de Victor Hugo (1802) ni celui de sa mort (1885), mais l’achèvement, en 1861, à Mont-Saint-Jean (Waterloo), de son célèbre ouvrage Les Misérables.
+\n\n
+« Liège au temps de Victor Hugo » propose un itinéraire sur les pas de Victor Hugo qui l’a honorée de ses visites en 1840 et 1864. Cet itinéraire donnera l’occasion de faire revivre un XIXe siècle en pleine mutation industrielle et urbanistique.
+\n\n
+Ce premier itinéraire sur Victor Hugo est le fruit d’une collaboration avec la Ville de Liège. Nous avons l’intention de concevoir d’autres itinéraires. Si vous avez de bonnes idées, nous sommes preneurs !
+\n\n
+« Lost in Liège » : probablement le seul guide polymorphe de la ville de Liège créé par des locaux. « Lost in Liège » - nous vous proposons un itinéraire disponible sur trois supports complémentaires : plan papier disponible à l’Office du Tourisme, ce site web – www.lostinliege.com et application smartphone que vous pouvez télécharger.
+\n\n
+Pourquoi ce projet? Tout simplement parce que nous aimons Liège et que nous prenons plaisir à découvrir ainsi qu\'à faire découvrir notre cité. Cette découverte comprend bien entendu les lieux incontournables mais, bien plus que cela, elle concerne aussi des lieux ou anecdotes qui sont plus généralement ignorés des guides classiques et qui contribuent à « humaniser » la ville tout en rendant la visite moins académique. Notre idée de base est de prendre le touriste par la main, comme s’il s’agissait d’un ami venant de l’étranger et de lui faire visiter notre ville.</string>
 
 </resources>

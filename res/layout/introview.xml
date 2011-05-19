@@ -7,27 +7,31 @@
   style="@style/android:Theme.NoTitleBar">
   <TextView
     android:id="@+id/title"
+    android:text="@string/intro_title"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
     style="@style/LostTitleFont"/>
-  <ScrollView
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:layout_below="@id/title">
-    <TextView
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="@string/about_content"
-    style="@style/LostFont"/>
-  </ScrollView>
 
   <ImageButton
     android:id="@+id/goBackButton"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:src="@drawable/backmenuicon"
-    android:ems="4"
+    android:ems="8"
+    android:layout_centerHorizontal="true"
     android:layout_alignParentBottom="true"/>
+
+  <ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_below="@id/title"
+    android:layout_above="@id/goBackButton">
+    <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/intro_content"
+    style="@style/LostFont"/>
+  </ScrollView>
 
 </RelativeLayout>

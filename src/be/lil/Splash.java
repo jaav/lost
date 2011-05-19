@@ -65,6 +65,12 @@ public class Splash extends Activity implements View.OnClickListener{
       case R.id.preferences:
         startActivity(new Intent(this, PreferencesActivity.class));
         break;
+      case R.id.about:
+        startActivity(new Intent(this, AboutActivity.class));
+        break;
+      case R.id.intro:
+        startActivity(new Intent(this, IntroActivity.class));
+        break;
       default:
       }
       return super.onOptionsItemSelected(item);

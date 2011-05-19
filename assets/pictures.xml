@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <pictures>
-<spot><picture>passarelle-i</picture><picture>passarelle</picture></spot>
+<spot><picture>passerelle-i</picture><picture>passerelle</picture></spot>
 <spot><picture>place-cockerill-i</picture><picture>place-cockerill</picture></spot>
 <spot><picture>andre-dumont</picture></spot>
 <spot><picture>emulation</picture></spot>
@@ -20,7 +20,7 @@
 <spot><picture>opera-i</picture><picture>opera</picture></spot>
 <spot><picture>gretry-i</picture><picture>gretry</picture></spot>
 <spot><picture>sauveniere-i</picture></spot>
-<spot><picture>le-grand-magasin-i</picture></spot>
+<spot><picture>le-grand-magasin-ixx</picture></spot>
 <spot><picture>rue-de-leopold-i</picture></spot>
 <spot><picture>cathedrale-st-lambert-i</picture></spot>
 <spot><picture>palais-des-princes-i</picture><picture>palais-des-princes</picture><picture>palais-des-princes-2</picture><picture>palais-des-princes-3</picture></spot>
@@ -37,7 +37,7 @@
 <spot><picture>filles-de-la-croix</picture></spot>
 <spot><picture>cour-st-antoine</picture></spot>
 <spot><picture>st-barthelemy</picture><picture>st-barthelemy-2</picture><picture>st-barthelemy-3</picture><picture>st-barthelemy-4</picture></spot>
-<spot><picture>les-principautaires</picture></picture></spot>
+<spot><picture>les-principautaires</picture></spot>
 <spot><picture>grand-curtius-i</picture><picture>grand-curtius-i2</picture><picture>grand-curtius</picture><picture>grand-curtius-2</picture></spot>
 <spot><picture>diligence-i</picture><picture>diligence-i2</picture><picture>diligence</picture></spot>
 <spot><picture>la-batte-i</picture><picture>la-batte-i2</picture><picture>la-batte</picture></spot>
@@ -47,5 +47,4 @@
 <spot><picture>place-du-marche</picture><picture>place-du-marche-2</picture></spot>
 <spot><picture>hotel-de-ville-i</picture><picture>hotel-de-ville</picture></spot>
 <spot><picture>le-perron-i</picture><picture>le-perron</picture></spot>
-
 </pictures>

@@ -11,5 +11,7 @@
     <string name="list">List</string>
     <string name="spots">Spots</string>
     <string name="preferences">Preferences</string>
+    <string name="intro">Intro</string>
+    <string name="about">About</string>
 
 </resources>

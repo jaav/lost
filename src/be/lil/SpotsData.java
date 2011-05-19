@@ -35,7 +35,7 @@ import static be.lil.Constants.*;
  */
 public class SpotsData extends SQLiteOpenHelper {
   private static final String DATABASE_NAME = "spots.db";
-  private static final int DATABASE_VERSION = 14;
+  private static final int DATABASE_VERSION = 18;
   private Context myCtx;
 
   /**

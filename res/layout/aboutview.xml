@@ -7,50 +7,31 @@
   style="@style/android:Theme.NoTitleBar">
   <TextView
     android:id="@+id/title"
+    android:text="@string/about_title"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
     style="@style/LostTitleFont"/>
+
+  <ImageButton
+    android:id="@+id/goBackButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/backmenuicon"
+    android:ems="8"
+    android:layout_centerHorizontal="true"
+    android:layout_alignParentBottom="true"/>
+
   <ScrollView
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:layout_below="@id/title">
+    android:layout_below="@id/title"
+    android:layout_above="@id/goBackButton">
     <TextView
-      android:id="@+id/desc"
       android:layout_width="fill_parent"
       android:layout_height="wrap_content"
+      android:text="@string/about_content"
     style="@style/LostFont"/>
   </ScrollView>
-
-  <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:stretchColumns="*"
-    android:layout_alignParentBottom="true"
-    android:id="@+id/footer">
-
-    <TableRow>
-
-      <ImageButton
-        android:id="@+id/goBackButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/backmenuicon"
-        android:ems="4"/>
-      <ImageButton
-        android:id="@+id/showMapButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/mapmenuicon"
-        android:ems="4"/>
-      <ImageButton
-        android:id="@+id/goButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/gomenuicon"
-        android:ems="4"/>
-
-    </TableRow>
-  </TableLayout>
 
 </RelativeLayout>

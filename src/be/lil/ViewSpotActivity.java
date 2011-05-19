@@ -62,7 +62,6 @@ public class ViewSpotActivity extends Activity implements View.OnClickListener{
   private Locale locale;
 	private Spot currentSpot;
   private int startspot;
-  private LayoutInflater inflater;
   private ProgressDialog dialog;
   private Location currentLocation;
   private boolean locationAvailable = true;
@@ -77,31 +76,17 @@ public class ViewSpotActivity extends Activity implements View.OnClickListener{
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    setContentView(R.layout.viewspot);
+    Intent message = getIntent();
+    startspot = message.getIntExtra("spotOrder", -1);
+    viewFlipper = (ViewFlipper)findViewById(R.id.flipper);
+    applyPreferences();
     DataFetchingTask fetcher = new DataFetchingTask(this, locale);
     fetcher.execute();
-    inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-    setContentView(R.layout.viewspot);
-    applyPreferences();
     dialog = ProgressDialog.show(ViewSpotActivity.this, "",
       "Loading data.\nPlease wait...", true);
     debugLocation.setLatitude(50.646821);
     debugLocation.setLongitude(5.577106);
-
-  }
-
-  /**
-   * Called when the activity is first created.
-   */
-  @Override
-  public void onResume() {
-    //showStop("Till onResume()");***14
-    super.onResume();
-    Intent message = getIntent();
-    startspot = message.getIntExtra("spotOrder", -1);
-    viewFlipper = (ViewFlipper)findViewById(R.id.flipper);
-
-
-
 
     slideLeftIn = AnimationUtils.loadAnimation(this, R.anim.slide_left_in);
 		slideLeftOut = AnimationUtils
@@ -124,6 +109,16 @@ public class ViewSpotActivity extends Activity implements View.OnClickListener{
 			}
 		};
     registerLocationListeners();
+
+  }
+
+  /**
+   * Called when the activity is first created.
+   */
+  @Override
+  public void onResume() {
+    //showStop("Till onResume()");***14
+    super.onResume();
   }
 
   @Override
@@ -140,6 +135,12 @@ public class ViewSpotActivity extends Activity implements View.OnClickListener{
       case R.id.preferences:
         startActivity(new Intent(this, PreferencesActivity.class));
         break;
+      case R.id.about:
+        startActivity(new Intent(this, AboutActivity.class));
+        break;
+      case R.id.intro:
+        startActivity(new Intent(this, IntroActivity.class));
+        break;
       default:
       }
       return super.onOptionsItemSelected(item);
@@ -147,13 +148,9 @@ public class ViewSpotActivity extends Activity implements View.OnClickListener{
   }
 
   private void useSpotsData(){
-    //setStart();
     if(startspot<0)
       currentSpot = allSpots.get(0);
     else currentSpot = allSpots.get(startspot);
-    for (int i = 0; i<allSpots.size(); i++) {
-      inflater.inflate(R.layout.onespotview, viewFlipper);
-    }
     setFlipperContent(currentSpot.getSpotorder(), true);
     viewFlipper.setDisplayedChild(currentSpot.getSpotorder());
 
@@ -166,7 +163,6 @@ public class ViewSpotActivity extends Activity implements View.OnClickListener{
       go.setOnClickListener(this);
     }
     dialog.dismiss();
-    //showStop("useSpotsData()");***300ms
   }
 
   private void showPictures(long spot_id){
@@ -192,7 +188,7 @@ public class ViewSpotActivity extends Activity implements View.OnClickListener{
     detailButton.setOnClickListener(detailClickListener);
     TextView dataView = (TextView)spotContainer.findViewWithTag("data");
     dataView.setText("" + allSpots.get(currentSpotOrder).getId());
-    if(root){
+    /*if(root){
       if(currentSpotOrder==0){
         setFlipperContent(allSpots.size()-1, false);
         setFlipperContent(1, false);
@@ -205,7 +201,7 @@ public class ViewSpotActivity extends Activity implements View.OnClickListener{
         setFlipperContent(currentSpotOrder-1, false);
         setFlipperContent(currentSpotOrder+1, false);
       }
-    }
+    }*/
   }
 
   private Spot getSpot(int movement){
@@ -223,7 +219,7 @@ public class ViewSpotActivity extends Activity implements View.OnClickListener{
   Bitmap bitmap = null;
    try{
      AssetManager am = getAssets();
-     BufferedInputStream buf = new BufferedInputStream(am.open(imageName+".jpg"));
+     BufferedInputStream buf = new BufferedInputStream(am.open("full/"+imageName+".jpg"));
      bitmap = BitmapFactory.decodeStream(buf);
      buf.close();
    }
@@ -238,7 +234,8 @@ public class ViewSpotActivity extends Activity implements View.OnClickListener{
     if(view.getId() == R.id.showMapButton)
       startActivity(new Intent(this, MapOverviewActivity.class));
     if(view.getId() == R.id.goBackButton)
-      startActivity(new Intent(this, Splash.class));
+      finish();
+      //startActivity(new Intent(this, Splash.class));
     if (view.getId() == R.id.goButton) {
       Intent mapIntent;
       double dist = getDistanceInM(currentLocation.getLatitude(), currentLocation.getLongitude(), currentSpot.getY(), currentSpot.getX());
@@ -400,7 +397,7 @@ public class ViewSpotActivity extends Activity implements View.OnClickListener{
     // could be very inaccurate though
     currentLocation = locationManager.getLastKnownLocation(
       locationManager.getBestProvider(fine, true));
-    currentLocation = debugLocation;
+    //currentLocation = debugLocation;
 
     if (listenerFine == null || listenerCoarse == null)
       createLocationListeners();
@@ -447,7 +444,7 @@ public class ViewSpotActivity extends Activity implements View.OnClickListener{
             location.getLatitude(),
             location.getLongitude()) > 100) {
             currentLocation = location;
-            currentLocation = debugLocation;
+            //currentLocation = debugLocation;
           }
         }
       }
@@ -482,7 +479,7 @@ public class ViewSpotActivity extends Activity implements View.OnClickListener{
             location.getLatitude(),
             location.getLongitude()) > 100) {
             currentLocation = location;
-            currentLocation = debugLocation;
+            //currentLocation = debugLocation;
           }
         }
       }

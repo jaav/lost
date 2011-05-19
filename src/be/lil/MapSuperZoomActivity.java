@@ -33,6 +33,7 @@ public class MapSuperZoomActivity extends Activity {
   private boolean isMenuEvent = false;
   private Locale locale;
   private SampleView sampleView;
+  private long targetSpotId;
 
   /**
    * Called when the activity is first created.
@@ -55,7 +56,7 @@ public class MapSuperZoomActivity extends Activity {
     Intent message = getIntent();
     float centerX = message.getFloatExtra("centerX", -1);
     float centerY = message.getFloatExtra("centerY", -1);
-    long targetSpotId = message.getLongExtra("spot_id", -1);
+    targetSpotId = message.getLongExtra("spot_id", -1);
     float myX = message.getFloatExtra("myX", 0);
     float myY = message.getFloatExtra("myY", 0);
     sampleView = new SampleView(this, centerX, centerY, targetSpotId, myX, myY);
@@ -90,24 +91,26 @@ public class MapSuperZoomActivity extends Activity {
         startActivity(new Intent(this, PreferencesActivity.class));
         break;
 
-      case R.id.goBack:{
-        startActivity(new Intent(this, Splash.class));
+      case R.id.goBack:
+        finish();
         break;
-      }
-      case R.id.spots:{
+      case R.id.spots:
         startActivity(new Intent(this, ViewSpotActivity.class));
         break;
-      }
-      case R.id.zoom:{
+      case R.id.zoomout:
         toggleZoom(
           CoordinatesTranslator.getRealX(sampleView.scrollRectX+displayWidth/2, CoordinatesTranslator.SUPERZOOM),
           CoordinatesTranslator.getRealY(sampleView.scrollRectY+displayHeight/2, CoordinatesTranslator.SUPERZOOM));
         break;
-      }
-      case R.id.home:{
+      case R.id.home:
         startActivity(new Intent(this, Splash.class));
         break;
-      }
+      case R.id.about:
+        startActivity(new Intent(this, AboutActivity.class));
+        break;
+      case R.id.intro:
+        startActivity(new Intent(this, IntroActivity.class));
+        break;
       default:
       }
       return super.onOptionsItemSelected(item);
@@ -154,6 +157,7 @@ public class MapSuperZoomActivity extends Activity {
     Intent detailIntent = new Intent(this, MapDetailActivity.class);
     detailIntent.putExtra("centerX", theX);
     detailIntent.putExtra("centerY", theY);
+    detailIntent.putExtra("spot_id", targetSpotId);
     startActivity(detailIntent);
   }
 

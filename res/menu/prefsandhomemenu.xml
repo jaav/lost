@@ -9,4 +9,15 @@
         android:title="@string/preferences"
         android:icon="@android:drawable/ic_menu_preferences" />
 
+
+    <item
+        android:id="@+id/intro"
+        android:title="@string/intro"
+        android:icon="@android:drawable/ic_menu_help" />
+
+    <item
+        android:id="@+id/about"
+        android:title="@string/about"
+        android:icon="@android:drawable/ic_menu_info_details" />
+
 </menu>

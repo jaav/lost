@@ -11,9 +11,4 @@
         android:title="@string/intro"
         android:icon="@android:drawable/ic_menu_help" />
 
-    <item
-        android:id="@+id/about"
-        android:title="@string/about"
-        android:icon="@android:drawable/ic_menu_info_details" />
-
 </menu>

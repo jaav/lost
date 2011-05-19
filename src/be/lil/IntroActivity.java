@@ -17,28 +17,16 @@ import java.util.Locale;
 public class IntroActivity extends Activity implements View.OnClickListener{
   private Locale locale;
 
-
-  private Runnable timeTask = new Runnable() {
-    public void run() {
-      goHome();
-    }
-  };
-
   /**
    * Called when the activity is first created.
    */
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.splash);
     applyPreferences();
-    ImageButton showMaps = (ImageButton)findViewById(R.id.showMapButton);
-    showMaps.setOnClickListener(this);
-    ImageButton showPhotos = (ImageButton)findViewById(R.id.showPhotoButton);
-    showPhotos.setOnClickListener(this);
-    ImageButton showSearch = (ImageButton)findViewById(R.id.showListButton);
-    showSearch.setOnClickListener(this);
-
+    setContentView(R.layout.introview);
+    ImageButton goBack = (ImageButton)findViewById(R.id.goBackButton);
+    goBack.setOnClickListener(this);
   }
 
   @Override
@@ -51,7 +39,7 @@ public class IntroActivity extends Activity implements View.OnClickListener{
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
     MenuInflater inflater = getMenuInflater();
-    inflater.inflate(R.menu.justprefsmenu, menu);
+    inflater.inflate(R.menu.prefsandaboutmenu, menu);
     return true;
   }
 
@@ -65,27 +53,16 @@ public class IntroActivity extends Activity implements View.OnClickListener{
       case R.id.about:
         startActivity(new Intent(this, AboutActivity.class));
         break;
-      case R.id.intro:
-        startActivity(new Intent(this, IntroActivity.class));
-        break;
       default:
       }
       return super.onOptionsItemSelected(item);
 
   }
 
-  private void goHome(){
-    startActivity(new Intent(this, MapOverviewActivity.class));
-  }
-
   @Override
   public void onClick(View view) {
-    if(view.getId() == R.id.showMapButton)
-      startActivity(new Intent(this, MapOverviewActivity.class));
-    if(view.getId() == R.id.showPhotoButton)
-      startActivity(new Intent(this, ViewSpotActivity.class));
-    if(view.getId() == R.id.showListButton)
-      startActivity(new Intent(this, SpotListActivity.class));
+    if(view.getId() == R.id.goBackButton)
+      finish();
   }
 
 
