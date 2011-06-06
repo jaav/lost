@@ -59,6 +59,7 @@ public class MapSuperZoomActivity extends Activity {
     targetSpotId = message.getLongExtra("spot_id", -1);
     float myX = message.getFloatExtra("myX", 0);
     float myY = message.getFloatExtra("myY", 0);
+    System.gc();
     sampleView = new SampleView(this, centerX, centerY, targetSpotId, myX, myY);
     setContentView(sampleView);
     applyPreferences();
@@ -209,6 +210,9 @@ public class MapSuperZoomActivity extends Activity {
       myY = meY;
       myTargetSpotId = targetSpotId;
 
+      BitmapFactory.Options options = new BitmapFactory.Options();
+      options.inScaled = false;
+
       // Destination rect for our main canvas draw. It never changes.
       displayRect = new Rect(0, 0, displayWidth, displayHeight);
       // Scroll rect: this will be used to 'scroll around' over the
@@ -217,19 +221,19 @@ public class MapSuperZoomActivity extends Activity {
 
       // Load a large bitmap into an offscreen area of memory.
       bmLargeImage = BitmapFactory.decodeResource(getResources(),
-        R.drawable.lost_map_no_icons_zoom_zoom);
+        R.drawable.lost_map_no_icons_zoom_zoom, options);
 
       // Load a heart icon into an offscreen area of memory.
       bmHeart = BitmapFactory.decodeResource(getResources(),
-        R.drawable.iconpointeronmap);
+        R.drawable.iconpointeronmap, options);
 
       // Load a red heart icon into an offscreen area of memory.
       bmRedHeart = BitmapFactory.decodeResource(getResources(),
-        R.drawable.iconpointeronmapred);
+        R.drawable.iconpointeronmapred, options);
 
       // Load the "my location" icon into an offscreen area of memory.
       bmMyLocation = BitmapFactory.decodeResource(getResources(),
-        R.drawable.mylocation);
+        R.drawable.mylocation, options);
       if(meX!=0 && meY!=0){
         mapMeX = CoordinatesTranslator.getMapX(meX, CoordinatesTranslator.SUPERZOOM);
         mapMeY = CoordinatesTranslator.getMapY(meY, CoordinatesTranslator.SUPERZOOM);
@@ -273,7 +277,6 @@ public class MapSuperZoomActivity extends Activity {
     @Override
     protected void onDraw(Canvas canvas) {
 
-      Log.e(TAG, "REDRAWING");
       if (!touched)
         moveToCenter();
       // Our move updates are calculated in ACTION_MOVE in the opposite direction

@@ -64,6 +64,7 @@ public class MapOverviewActivity extends Activity {
     targetSpotId = message.getLongExtra("spot_id", -1);
     float myX = message.getFloatExtra("myX", 0);
     float myY = message.getFloatExtra("myY", 0);
+    System.gc();
     sampleView = new SampleView(this, centerX, centerY, targetSpotId, myX, myY);
     setContentView(sampleView);
     applyPreferences();
@@ -283,7 +284,6 @@ public class MapOverviewActivity extends Activity {
     @Override
     protected void onDraw(Canvas canvas) {
 
-      Log.e(TAG, "REDRAWING");
       if(isMenuEvent){
         scrollByX = 0;
         scrollByY = 0;

@@ -19,15 +19,9 @@ import android.widget.*;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Vector;
-
-import static android.provider.BaseColumns._ID;
-import static be.lil.Constants.NAME;
-import static be.lil.Constants.X;
-import static be.lil.Constants.Y;
 
 /**
  * Created by IntelliJ IDEA.
@@ -104,7 +98,8 @@ public class SpotListActivity extends ListActivity {
   }
 
   private void useSpotsData(){
-    CustomAdapter adapter = new CustomAdapter(this, R.layout.list,
+    System.gc();
+    CustomAdapter adapter = new CustomAdapter(this, R.layout.listr,
       R.id.title, data);
     setListAdapter(adapter);
     getListView().setTextFilterEnabled(true);
@@ -153,7 +148,7 @@ public class SpotListActivity extends ListActivity {
       ImageView i11 = null;
       RowData rowData = getItem(position);
       if (null == convertView) {
-        convertView = mInflater.inflate(R.layout.list, null);
+        convertView = mInflater.inflate(R.layout.listr, null);
         holder = new ViewHolder(convertView);
         convertView.setTag(holder);
       }

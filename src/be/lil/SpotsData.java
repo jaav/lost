@@ -35,7 +35,7 @@ import static be.lil.Constants.*;
  */
 public class SpotsData extends SQLiteOpenHelper {
   private static final String DATABASE_NAME = "spots.db";
-  private static final int DATABASE_VERSION = 18;
+  private static final int DATABASE_VERSION = 19;
   private Context myCtx;
 
   /**
@@ -106,7 +106,7 @@ public class SpotsData extends SQLiteOpenHelper {
       Node route = routes.item(i);
       NodeList coordinates = route.getChildNodes();
       for(int j = 0; j<coordinates.getLength(); j++){
-        String coords = coordinates.item(j).getTextContent();
+        String coords = coordinates.item(j).getFirstChild().getNodeValue();
         ContentValues routeValues = new ContentValues();
         routeValues.put(SPOT_ID, spot_id);
         routeValues.put(TO_X, coords.substring(0, coords.indexOf(',')));
@@ -120,7 +120,7 @@ public class SpotsData extends SQLiteOpenHelper {
       for(int j = 0; j<pics.getLength(); j++){
         ContentValues pictureValues = new ContentValues();
         pictureValues.put(SPOT_ID, spot_id);
-        pictureValues.put(URL, pics.item(j).getTextContent());
+        pictureValues.put(URL, pics.item(j).getFirstChild().getNodeValue());
         long pic_id = db.insertOrThrow(PICTURES_TABLE_NAME, null, pictureValues);
         long test = pic_id;
       }
@@ -131,8 +131,8 @@ public class SpotsData extends SQLiteOpenHelper {
         if(descs.item(j).getNodeType()==Node.ELEMENT_NODE){
           ContentValues descriptionValues = new ContentValues();
           descriptionValues.put(SPOT_ID, spot_id);
-          descriptionValues.put(TITLE, descs.item(j).getFirstChild().getTextContent());
-          descriptionValues.put(DESCRIPTION, descs.item(j).getLastChild().getTextContent());
+          descriptionValues.put(TITLE, descs.item(j).getFirstChild().getFirstChild().getNodeValue());
+          descriptionValues.put(DESCRIPTION, descs.item(j).getLastChild().getFirstChild().getNodeValue());
           descriptionValues.put(LANG, descs.item(j).getNodeName());
           long desc_id = db.insertOrThrow(DESCRIPTION_TABLE_NAME, null, descriptionValues);
           long test = desc_id;

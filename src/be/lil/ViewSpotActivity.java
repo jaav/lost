@@ -151,6 +151,7 @@ public class ViewSpotActivity extends Activity implements View.OnClickListener{
     if(startspot<0)
       currentSpot = allSpots.get(0);
     else currentSpot = allSpots.get(startspot);
+    System.gc();
     setFlipperContent(currentSpot.getSpotorder(), true);
     viewFlipper.setDisplayedChild(currentSpot.getSpotorder());
 

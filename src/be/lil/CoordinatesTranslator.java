@@ -92,9 +92,9 @@ public class CoordinatesTranslator {
 
   public static float getRealY(float mapY, int mapType){
     if(mapType == OVERVIEW){
-      int imgHeight = 728;
-      float maxDifY = -0.009824F;
-      float topCoord = 50.648780F;
+      int imgHeight = 800;
+      float maxDifY = -0.010796F;
+      float topCoord = 50.648294F;
       return maxDifY*mapY/imgHeight +topCoord;
     }
     else if(mapType == DETAIL){
@@ -122,7 +122,7 @@ public class CoordinatesTranslator {
     }
     else if(mapType == DETAIL){
       int imgWidth = 1736;
-      float maxDifX = 0.018872F;
+      float maxDifX = 0.0185F;
       float leftCoord = 5.566335F;
       //return imgWidth*(realX/maxDifX) - imgWidth*(leftCoord/maxDifX);
       return imgWidth/maxDifX*(realX - leftCoord);
@@ -139,9 +139,14 @@ public class CoordinatesTranslator {
 
   public static float getMapY(float realY, int mapType){
     if(mapType == OVERVIEW){
-      int imgHeight = 728;
+      /*int imgHeight = 728;
       float maxDifY = -0.009824F;
-      float topCoord = 50.648780F;
+      float topCoord = 50.648780F;*/
+
+      int imgHeight = 800;
+      float maxDifY = -0.010796F;
+      float topCoord = 50.649266F;
+
       //return imgWidth*(realX/maxDifX) - imgWidth*(leftCoord/maxDifX);
       return imgHeight/maxDifY*(realY - topCoord);
     }
