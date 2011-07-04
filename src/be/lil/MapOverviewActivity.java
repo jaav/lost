@@ -69,11 +69,13 @@ public class MapOverviewActivity extends Activity {
     setContentView(sampleView);
     applyPreferences();
     spotsData = new SpotsData(this);
+    Cursor cursor = null;
     try {
-      Cursor cursor = spotsData.getAllSpotsCursor();
+      cursor = spotsData.getAllSpotsCursor();
       startManagingCursor(cursor);
       createSpotsList(cursor);
     } finally {
+      cursor.close();
       spotsData.close();
     }
     for (Spot spot : currentSpots) {

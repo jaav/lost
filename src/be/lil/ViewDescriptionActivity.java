@@ -191,6 +191,7 @@ public class ViewDescriptionActivity extends Activity implements View.OnClickLis
       } catch (ParseException e) {
         e.printStackTrace();
       }
+      cursor.close();
       return null;
     }
 
@@ -259,7 +260,8 @@ public class ViewDescriptionActivity extends Activity implements View.OnClickLis
         if (location.getAccuracy() > 1000 && location.hasAccuracy())
           locationManager.removeUpdates(this);
         else {
-          if (getDistanceInM(
+          if(currentLocation == null) currentLocation = location;
+          else if (getDistanceInM(
             currentLocation.getLatitude(),
             currentLocation.getLongitude(),
             location.getLatitude(),
@@ -294,7 +296,8 @@ public class ViewDescriptionActivity extends Activity implements View.OnClickLis
         if (location.getAccuracy() > 1000 && location.hasAccuracy())
           locationManager.removeUpdates(this);
         else {
-          if (getDistanceInM(
+          if(currentLocation == null) currentLocation = location;
+          else if (getDistanceInM(
             currentLocation.getLatitude(),
             currentLocation.getLongitude(),
             location.getLatitude(),

@@ -258,7 +258,7 @@ public class SpotListActivity extends ListActivity {
           e.printStackTrace();
         }
       }
-
+      cursor.close();
     }
   }
 }

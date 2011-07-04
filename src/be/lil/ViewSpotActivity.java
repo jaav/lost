@@ -239,32 +239,39 @@ public class ViewSpotActivity extends Activity implements View.OnClickListener{
       //startActivity(new Intent(this, Splash.class));
     if (view.getId() == R.id.goButton) {
       Intent mapIntent;
-      double dist = getDistanceInM(currentLocation.getLatitude(), currentLocation.getLongitude(), currentSpot.getY(), currentSpot.getX());
-      if(dist > 400){
+      if(currentLocation==null){
         mapIntent = new Intent(this, MapOverviewActivity.class);
         mapIntent.putExtra("centerX", currentSpot.getX());
         mapIntent.putExtra("centerY", currentSpot.getY());
       }
-      else if(dist > 200){
-        mapIntent = new Intent(this, MapOverviewActivity.class);
-        mapIntent.putExtra("centerX", (float)((currentSpot.getX()+currentLocation.getLongitude())/2));
-        mapIntent.putExtra("centerY", (float)((currentSpot.getY()+currentLocation.getLatitude())/2));
-        mapIntent.putExtra("myX", (float)(currentLocation.getLongitude()));
-        mapIntent.putExtra("myY", (float)(currentLocation.getLatitude()));
-      }
-      else if(dist > 100){
-        mapIntent = new Intent(this, MapDetailActivity.class);
-        mapIntent.putExtra("centerX", (float)((currentSpot.getX()+currentLocation.getLongitude())/2));
-        mapIntent.putExtra("centerY", (float)((currentSpot.getY()+currentLocation.getLatitude())/2));
-        mapIntent.putExtra("myX", (float)(currentLocation.getLongitude()));
-        mapIntent.putExtra("myY", (float)(currentLocation.getLatitude()));
-      }
       else{
-        mapIntent = new Intent(this, MapSuperZoomActivity.class);
-        mapIntent.putExtra("centerX", (float)((currentSpot.getX()+currentLocation.getLongitude())/2));
-        mapIntent.putExtra("centerY", (float)((currentSpot.getY()+currentLocation.getLatitude())/2));
-        mapIntent.putExtra("myX", (float)(currentLocation.getLongitude()));
-        mapIntent.putExtra("myY", (float)(currentLocation.getLatitude()));
+        double dist = getDistanceInM(currentLocation.getLatitude(), currentLocation.getLongitude(), currentSpot.getY(), currentSpot.getX());
+        if(dist > 400){
+          mapIntent = new Intent(this, MapOverviewActivity.class);
+          mapIntent.putExtra("centerX", currentSpot.getX());
+          mapIntent.putExtra("centerY", currentSpot.getY());
+        }
+        else if(dist > 200){
+          mapIntent = new Intent(this, MapOverviewActivity.class);
+          mapIntent.putExtra("centerX", (float)((currentSpot.getX()+currentLocation.getLongitude())/2));
+          mapIntent.putExtra("centerY", (float)((currentSpot.getY()+currentLocation.getLatitude())/2));
+          mapIntent.putExtra("myX", (float)(currentLocation.getLongitude()));
+          mapIntent.putExtra("myY", (float)(currentLocation.getLatitude()));
+        }
+        else if(dist > 100){
+          mapIntent = new Intent(this, MapDetailActivity.class);
+          mapIntent.putExtra("centerX", (float)((currentSpot.getX()+currentLocation.getLongitude())/2));
+          mapIntent.putExtra("centerY", (float)((currentSpot.getY()+currentLocation.getLatitude())/2));
+          mapIntent.putExtra("myX", (float)(currentLocation.getLongitude()));
+          mapIntent.putExtra("myY", (float)(currentLocation.getLatitude()));
+        }
+        else{
+          mapIntent = new Intent(this, MapSuperZoomActivity.class);
+          mapIntent.putExtra("centerX", (float)((currentSpot.getX()+currentLocation.getLongitude())/2));
+          mapIntent.putExtra("centerY", (float)((currentSpot.getY()+currentLocation.getLatitude())/2));
+          mapIntent.putExtra("myX", (float)(currentLocation.getLongitude()));
+          mapIntent.putExtra("myY", (float)(currentLocation.getLatitude()));
+        }
       }
       mapIntent.putExtra("spot_id", currentSpot.getId());
       startActivity(mapIntent);
@@ -379,7 +386,7 @@ public class ViewSpotActivity extends Activity implements View.OnClickListener{
           e.printStackTrace();
         }
       }
-
+      cursor.close();
     }
   }
 
@@ -439,7 +446,8 @@ public class ViewSpotActivity extends Activity implements View.OnClickListener{
         if (location.getAccuracy() > 1000 && location.hasAccuracy())
           locationManager.removeUpdates(this);
         else {
-          if (getDistanceInM(
+          if(currentLocation == null) currentLocation = location;
+          else if (getDistanceInM(
             currentLocation.getLatitude(),
             currentLocation.getLongitude(),
             location.getLatitude(),
@@ -474,7 +482,8 @@ public class ViewSpotActivity extends Activity implements View.OnClickListener{
         if (location.getAccuracy() > 1000 && location.hasAccuracy())
           locationManager.removeUpdates(this);
         else {
-          if (getDistanceInM(
+          if(currentLocation == null) currentLocation = location;
+          else if (getDistanceInM(
             currentLocation.getLatitude(),
             currentLocation.getLongitude(),
             location.getLatitude(),
